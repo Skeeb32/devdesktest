@@ -29,11 +29,9 @@ class TicketList extends React.Component {
               category={ticket.category}
               createdBy={ticket.user_id}
               assigned={ticket.assigned}
-              resolved={ticket.resolved}
               assignedUser={ticket.assigned_user}
               description={ticket.description}
               assignTicket={this.assignTicket}
-              userRole={this.props.user.isAdmin}
             />
           ))}
         </ItemDiv>

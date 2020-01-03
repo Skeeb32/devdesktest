@@ -45,11 +45,7 @@ const initialState = {
 
   users: [],
   user: {
-    user_id: "",
-    cohort: null,
-    email: "",
-    role: "",
-    username: ""
+    student_id: ""
   },
 
   categories: ["None", "React", "JavaScript", "HTML", "CSS"],
@@ -227,7 +223,7 @@ const reducers = (state = initialState, action) => {
       const assignedTicket = state.tickets.map(ticket => {
         if (Number(ticket.id) === Number(action.id)) {
           ticket.assigned = !ticket.assigned;
-          ticket.assigned_user = state.user.user_id;
+          ticket.assigned_user = state.user.student_id;
           if (!ticket.assigned) {
             ticket.assigned_user = "";
           }

@@ -5,13 +5,13 @@ import { connect } from "react-redux";
 import { deleteTicket, getUser } from "../../actions/actions";
 
 class TicketItem extends Component {
-  excerptHelper = text => {
-    if (text.length > 100) {
-      return text.slice(0, 100).concat(" . . .");
-    } else {
-      return text;
-    }
-  };
+  // excerptHelper = text => {
+  //   if (text.length > 100) {
+  //     return text.slice(0, 100).concat(" . . .");
+  //   } else {
+  //     return text;
+  //   }
+  // };
   render() {
     console.log(this.props.users);
     return (
@@ -35,7 +35,7 @@ class TicketItem extends Component {
               <h1 className="ticket-title">{this.props.title}</h1>
             </Link>
             <p className="ticket-description">
-              {this.excerptHelper(this.props.description)}
+              {this.props.description}
             </p>
           </div>
           <div className="delete-item">

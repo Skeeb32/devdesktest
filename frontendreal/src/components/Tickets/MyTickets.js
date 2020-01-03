@@ -8,12 +8,12 @@ import TicketItem from "./TicketItem";
 
 const test = props => {
   const ownedTickets = props.tickets.filter(
-    ticket => ticket.user_id === props.user.user_id
+    ticket => ticket.student_id === props.student_id
   );
   const claimedTickets = props.tickets.filter(
-    ticket => ticket.assigned_user === props.user.user_id
+    ticket => ticket.assigned_user === props.student_id
   );
-  if (props.user.isAdmin) {
+  if (props.isAdmin) {
     return (
       <Dashboard>
         <ItemDiv>
@@ -24,7 +24,7 @@ const test = props => {
               ticket={ticket}
               title={ticket.title}
               category={ticket.category}
-              createdBy={ticket.user_id}
+              createdBy={ticket.student_id}
               assigned={ticket.assigned}
               resolved={ticket.resolved}
               assignedUser={ticket.assigned_user}
@@ -45,7 +45,7 @@ const test = props => {
               ticket={ticket}
               title={ticket.title}
               category={ticket.category}
-              createdBy={ticket.user_id}
+              createdBy={ticket.student_id}
               assigned={ticket.assigned}
               resolved={ticket.resolved}
               assignedUser={ticket.assigned_user}
