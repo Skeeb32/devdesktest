@@ -3,6 +3,8 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 // Action to Perform Login operation
 
+const API = "https://dev-desk-back-end.herokuapp.com/api";
+
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
@@ -15,9 +17,11 @@ export const login = credentials => dispatch => {
   dispatch({ type: LOGIN_START });
 
   return axios
-    .post("https://devdeskqueue-be.herokuapp.com/api/login", credentials)
+    .post(`${API}/auth/login`, credentials)
     .then(res => {
       if (res.status === 200) {
+        console.log("Success.");
+
         dispatch({
           type: LOGIN_SUCCESS,
           user: res.data.user,
@@ -26,6 +30,8 @@ export const login = credentials => dispatch => {
           message: res.data.message
         });
         setTimeout(() => dispatch({ type: LOGIN_RESOLVED }), 1500);
+      } else {
+        console.log("Status: " + res.status);
       }
     })
     .catch(err => {
@@ -48,7 +54,7 @@ export const FETCH_DATA_FAIL = "FETCH_DATA_FAIL";
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axiosWithAuth()
-    .get(`https://devdeskqueue-be.herokuapp.com/api/tickets`)
+    .get(`${API}/students`)
     .then(res => {
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     })
@@ -65,7 +71,7 @@ export const ADD_TICKET_FAIL = "ADD_TICKET_FAIL";
 export const addTicket = newTicket => dispatch => {
   dispatch({ type: ADD_TICKET_START });
   axiosWithAuth()
-    .post("https://devdeskqueue-be.herokuapp.com/api/tickets", newTicket)
+    .post(`${API}/tickets/create`, newTicket)
     .then(res => {
       dispatch({
         type: ADD_TICKET_SUCCESS,
@@ -86,7 +92,7 @@ export const editTicket = (id, updatedTicket) => dispatch => {
   dispatch({ type: EDIT_TICKET_START });
   axiosWithAuth()
     .put(
-      `https://devdeskqueue-be.herokuapp.com/api/tickets/${id}`,
+      `${API}/tickets/edit/${id}`,
       updatedTicket
     )
     .then(res => {
@@ -109,7 +115,7 @@ export const DELETE_TICKET_FAIL = "DELETE_TICKET_FAIL";
 export const deleteTicket = id => dispatch => {
   dispatch({ type: DELETE_TICKET_START });
   axiosWithAuth()
-    .delete(`https://devdeskqueue-be.herokuapp.com/api/tickets/${id}`)
+    .delete(`${API}/tickets/delete/${id}`)
     .then(res => {
       dispatch({
         type: DELETE_TICKET_SUCCESS,
@@ -166,7 +172,7 @@ export const SIGNUP_FAIL = "SIGNUP_FAIL";
 export const signup = user => dispatch => {
   dispatch({ type: SIGNUP_START });
   return axios
-    .post("https://devdeskqueue-be.herokuapp.com/api/register", user)
+    .post(`${API}/auth/register`, user)
     .then(res => {
       dispatch({
         type: SIGNUP_SUCCESS,

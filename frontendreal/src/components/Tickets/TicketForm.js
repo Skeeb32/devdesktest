@@ -11,9 +11,7 @@ class TicketForm extends Component {
       title: "",
       description: "",
       category: "",
-      resolved: false,
-      assigned: false,
-      user_id: this.props.user.user_id
+      what_was_tried: ""
     }
   };
 
@@ -66,7 +64,15 @@ class TicketForm extends Component {
               value={this.state.ticket.description}
             />
           </div>
-
+          <div className="field">
+            <label htmlFor="what_was_tried">What Was Tried?:</label>
+            <textarea
+              onChange={this.handleChange}
+              type="textarea"
+              name="what_was_tried"
+              value={this.state.ticket.what_was_tried}
+            />
+          </div>
           <button type="submit">Submit</button>
         </SForm>
       </Dashboard>

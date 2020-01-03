@@ -6,7 +6,12 @@ import { connect } from "react-redux";
 import { login } from "../actions/actions";
 
 class Login extends Component {
-  state = { credentials: { username: "", password: "" } };
+  state = {
+    credentials: {
+      username: "",
+      password: ""
+    }
+  };
 
   handleChange = e => {
     this.setState({
@@ -39,7 +44,7 @@ class Login extends Component {
     return (
       <div>
         <LoginHeader>
-          <h1>Lambda School</h1>
+          <h1>DevDesk</h1>
         </LoginHeader>
         <LoginForm onSubmit={this.login} action="" autoComplete="off">
           <input
@@ -59,9 +64,6 @@ class Login extends Component {
             required
           />
           <button type="submit">Login</button>
-          <div className={this.props.status}>
-            <p>{this.props.error}</p>
-          </div>
           <div className="extra">
             <p>
               Don't have an Account? <Link to="/registration">Sign up!</Link>

@@ -7,13 +7,8 @@ import { signup } from "../actions/actions";
 class Registration extends Component {
   state = {
     user: {
-      firstName: "",
-      lastName: "",
       username: "",
-      password: "",
-      email: "",
-      isAdmin: false,
-      cohort: ""
+      password: ""
     }
   };
 
@@ -37,13 +32,8 @@ class Registration extends Component {
       this.setState({
         user: {
           ...this.state.user,
-          firstName: "",
-          lastName: "",
           username: "",
-          password: "",
-          email: "",
-          isAdmin: false,
-          cohort: ""
+          password: ""
         }
       });
     }, 1500);
@@ -52,25 +42,9 @@ class Registration extends Component {
     return (
       <div>
         <LoginHeader>
-          <h1>Lambda School</h1>
+          <h1>Registration</h1>
         </LoginHeader>
         <LoginForm onSubmit={this.signup} actions="" autoComplete="off">
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={this.state.user.firstName}
-            required
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={this.state.user.lastName}
-            required
-          />
           <input
             onChange={this.handleChange}
             type="text"
@@ -87,29 +61,10 @@ class Registration extends Component {
             value={this.state.user.password}
             required
           />
-          <input
-            onChange={this.handleChange}
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={this.state.user.email}
-            required
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="cohort"
-            placeholder="Cohort"
-            value={this.state.user.cohort}
-            required
-          />
           <button type="submit">Sign Up!</button>
-          <div className={this.props.status}>
-            <p>{this.props.error}</p>
-          </div>
           <div className="extra">
             <p>
-              Already have an Account? <Link to="/">Log in!</Link>
+              Already have an Account? <Link to="/">Login!</Link>
             </p>
           </div>
         </LoginForm>

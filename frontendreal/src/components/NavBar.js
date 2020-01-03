@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import StudentLogin from "../components/StudentLogin";
-import HelperLogin from "../components/HelperLogin";
 import { Link } from "react-router-dom";
 
 import {

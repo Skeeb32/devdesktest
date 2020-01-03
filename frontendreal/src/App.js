@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import NavBar from "./components/NavBar";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import TicketViews from "./views/TicketViews";
@@ -13,8 +14,9 @@ import MyTickets from "./components/Tickets/MyTickets";
 function App() {
   return (
     <Router>
+      <NavBar />
         {/* <Route path="/" exact component={HomePage} /> */}
-        <Route exact path="/" exact component={Login} />
+        <Route exact path="/" component={Login} />
         <PrivateRoute
           path="/tickets/:id"
           exact
