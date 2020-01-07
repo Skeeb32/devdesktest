@@ -13,7 +13,6 @@ class Registration extends Component {
       password: "",
       email: "",
       isAdmin: false,
-      cohort: ""
     }
   };
 
@@ -30,7 +29,7 @@ class Registration extends Component {
     e.preventDefault();
     this.props.signup(this.state.user).then(() => {
       setTimeout(() => {
-        this.props.history.push("/");
+        this.props.history.push("/login");
       }, 1500);
     });
     setTimeout(() => {
@@ -43,7 +42,6 @@ class Registration extends Component {
           password: "",
           email: "",
           isAdmin: false,
-          cohort: ""
         }
       });
     }, 1500);
@@ -95,21 +93,13 @@ class Registration extends Component {
             value={this.state.user.email}
             required
           />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="cohort"
-            placeholder="Cohort"
-            value={this.state.user.cohort}
-            required
-          />
           <button type="submit">Sign Up!</button>
           <div className={this.props.status}>
             <p>{this.props.error}</p>
           </div>
           <div className="extra">
             <p>
-              Already have an Account? <Link to="/">Log in!</Link>
+              Already have an Account? <Link to="/Login">Log in!</Link>
             </p>
           </div>
         </LoginForm>

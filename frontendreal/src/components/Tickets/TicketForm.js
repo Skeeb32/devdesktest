@@ -50,7 +50,7 @@ class TicketForm extends Component {
             />
           </div>
           <div className="field">
-            <label htmlFor="category"> Category:</label>
+            <label htmlFor="category"> Type:</label>
             <select onChange={this.handleChange} name="category" id="category">
               {this.props.categories.map((category, i) => (
                 <option key={i}>{category}</option>
@@ -58,7 +58,7 @@ class TicketForm extends Component {
             </select>
           </div>
           <div className="field">
-            <label htmlFor="description">Description:</label>
+            <label htmlFor="description">Detail:</label>
             <textarea
               onChange={this.handleChange}
               type="textarea"

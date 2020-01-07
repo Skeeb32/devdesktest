@@ -64,7 +64,7 @@ class Login extends Component {
           </div>
           <div className="extra">
             <p>
-              Don't have an Account? <Link to="/registration">Sign up!</Link>
+              Not Enrolled? Sign Up Now. <Link to="/Registration">Sign up!</Link>
             </p>
           </div>
         </LoginForm>
